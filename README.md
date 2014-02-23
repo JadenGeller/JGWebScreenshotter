@@ -8,6 +8,7 @@ Here is an example of a simple request for a 300x300 screenshot of Google's home
 ```
 [JGWebScreenshotter requestScreenshotWithURL:[NSURL URLWithString:@"http://google.com"] size:CGSizeMake(300,300) completion:^(UIImage *screenshot) {
         // We got the screenshot!
+        [self doSomething: screenshot];
 }];
 ```
 
@@ -16,6 +17,7 @@ You can also request a full-height image of a website by just providing the widt
 ```
 [JGWebScreenshotter requestScreenshotWithURL:[NSURL URLWithString:@"http://google.com"] width:300 completion:^(UIImage *screenshot) {
         // We got the screenshot!
+        [self doSomething: screenshot];
 }];
 ```
 
