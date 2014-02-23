@@ -7,7 +7,7 @@
 //
 
 #import "JGViewController.h"
-#import "JGWebViewScreenshotter.h"
+#import "JGWebScreenshotter.h"
 
 @interface JGViewController ()
 
@@ -22,20 +22,20 @@
     
     // The screenshots will load in the order that they are requested
     
-    [JGWebViewScreenshotter requestScreenshotWithURL:[NSURL URLWithString:@"http://google.com"] size:self.topImageView.frame.size completion:^(UIImage *screenshot) {
+    [JGWebScreenshotter requestScreenshotWithURL:[NSURL URLWithString:@"http://google.com"] size:self.topImageView.frame.size completion:^(UIImage *screenshot) {
         self.topImageView.image = screenshot;
     }];
     
-    [JGWebViewScreenshotter requestScreenshotWithURL:[NSURL URLWithString:@"http://apple.com"] size:self.bottomRightImageView.frame.size completion:^(UIImage *screenshot) {
+    [JGWebScreenshotter requestScreenshotWithURL:[NSURL URLWithString:@"http://apple.com"] size:self.bottomRightImageView.frame.size completion:^(UIImage *screenshot) {
         self.bottomRightImageView.image = screenshot;
     }];
     
-    [JGWebViewScreenshotter requestScreenshotWithURL:[NSURL URLWithString:@"http://theverge.com"] size:self.bottomLeftImageView.frame.size completion:^(UIImage *screenshot) {
+    [JGWebScreenshotter requestScreenshotWithURL:[NSURL URLWithString:@"http://theverge.com"] size:self.bottomLeftImageView.frame.size completion:^(UIImage *screenshot) {
         self.bottomLeftImageView.image = screenshot;
     }];
     
     
-    [JGWebViewScreenshotter requestScreenshotWithURL:[NSURL URLWithString:@"http://github.com"] size:self.middleRightImageView.frame.size completion:^(UIImage *screenshot) {
+    [JGWebScreenshotter requestScreenshotWithURL:[NSURL URLWithString:@"http://github.com"] size:self.middleRightImageView.frame.size completion:^(UIImage *screenshot) {
         self.middleRightImageView.image = screenshot;
     }];
     

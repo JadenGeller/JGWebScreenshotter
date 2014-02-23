@@ -1,32 +1,31 @@
 //
-//  JGWebViewSnapshotter.m
-//  Baton
+//  JGWebScreenshotter.m
 //
-//  Created by Jaden Geller on 2/15/14.
-//  Copyright (c) 2014 EJVDev. All rights reserved.
+//  Created by Jaden Geller on 2/23/14.
+//  Copyright (c) 2014 Jaden Geller. All rights reserved.
 //
 
-#import "JGWebViewScreenshotter.h"
+#import "JGWebScreenshotter.h"
 #import "UIWebView+Screenshot.h"
 
 #pragma makr - Request
 
 CGFloat const JGSnapshotHeightFull = CGFLOAT_MAX;
 
-@interface JGWebViewScreenshotterRequest : NSObject
+@interface JGWebScreenshotterRequest : NSObject
 
 @property (nonatomic) NSURL *URL;
 @property (nonatomic) CGSize size;
 @property (nonatomic, copy) tookScreenshot completion;
 
-+(JGWebViewScreenshotterRequest*)requestWithURL:(NSURL*)URL size:(CGSize)size completion:(tookScreenshot)completion;
++(JGWebScreenshotterRequest*)requestWithURL:(NSURL*)URL size:(CGSize)size completion:(tookScreenshot)completion;
 
 @end
 
-@implementation JGWebViewScreenshotterRequest
+@implementation JGWebScreenshotterRequest
 
-+(JGWebViewScreenshotterRequest*)requestWithURL:(NSURL*)URL size:(CGSize)size completion:(tookScreenshot)completion{
-    JGWebViewScreenshotterRequest *request = [[JGWebViewScreenshotterRequest alloc]init];
++(JGWebScreenshotterRequest*)requestWithURL:(NSURL*)URL size:(CGSize)size completion:(tookScreenshot)completion{
+    JGWebScreenshotterRequest *request = [[JGWebScreenshotterRequest alloc]init];
     request.URL = URL;
     request.size = size;
     request.completion = completion;
@@ -38,24 +37,24 @@ CGFloat const JGSnapshotHeightFull = CGFLOAT_MAX;
 
 #pragma mark - Snapshotter
 
-@interface JGWebViewScreenshotter ()
+@interface JGWebScreenshotter ()
 
 @property (nonatomic) UIWebView *web;
 @property (nonatomic) NSMutableArray *requests;
 
-@property (nonatomic) JGWebViewScreenshotterRequest *currentRequest;
+@property (nonatomic) JGWebScreenshotterRequest *currentRequest;
 
 @end
 
-@implementation JGWebViewScreenshotter
+@implementation JGWebScreenshotter
 
-+(JGWebViewScreenshotter*)sharedInstance{
++(JGWebScreenshotter*)sharedInstance{
     
-    static JGWebViewScreenshotter *sharedInstance = nil;
+    static JGWebScreenshotter *sharedInstance = nil;
     static dispatch_once_t onceToken = 0;
     
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[JGWebViewScreenshotter alloc]init];
+        sharedInstance = [[JGWebScreenshotter alloc]init];
     });
     
     return sharedInstance;
@@ -98,22 +97,22 @@ CGFloat const JGSnapshotHeightFull = CGFLOAT_MAX;
 }
 
 +(void)requestScreenshotWithURL:(NSURL*)URL size:(CGSize)size completion:(tookScreenshot)completion{
-    [[JGWebViewScreenshotter sharedInstance] requestScreenshotWithURL:URL size:size completion:completion];
+    [[JGWebScreenshotter sharedInstance] requestScreenshotWithURL:URL size:size completion:completion];
 }
 
 +(void)requestScreenshotWithURL:(NSURL*)URL width:(CGFloat)width completion:(tookScreenshot)completion{
-    [[JGWebViewScreenshotter sharedInstance] requestScreenshotWithURL:URL width:width completion:completion];
+    [[JGWebScreenshotter sharedInstance] requestScreenshotWithURL:URL width:width completion:completion];
 }
 
 -(void)requestScreenshotWithURL:(NSURL*)URL size:(CGSize)size completion:(tookScreenshot)completion{
-    [self enqueueRequest:[JGWebViewScreenshotterRequest requestWithURL:URL size:size completion:completion]];
+    [self enqueueRequest:[JGWebScreenshotterRequest requestWithURL:URL size:size completion:completion]];
 }
 
 -(void)requestScreenshotWithURL:(NSURL *)URL width:(CGFloat)width completion:(tookScreenshot)completion{
-    [self enqueueRequest:[JGWebViewScreenshotterRequest requestWithURL:URL size:CGSizeMake(width, JGSnapshotHeightFull) completion:completion]];
+    [self enqueueRequest:[JGWebScreenshotterRequest requestWithURL:URL size:CGSizeMake(width, JGSnapshotHeightFull) completion:completion]];
 }
 
--(void)enqueueRequest:(JGWebViewScreenshotterRequest*)request{
+-(void)enqueueRequest:(JGWebScreenshotterRequest*)request{
     [self.requests addObject:request];
     [self processNextRequest];
 }

@@ -1,9 +1,8 @@
 //
 //  UIWebView+Screenshot.m
-//  Baton
 //
 //  Created by Jaden Geller on 2/23/14.
-//  Copyright (c) 2014 EJV Dev. All rights reserved.
+//  Copyright (c) 2014 Jaden Geller. All rights reserved.
 //
 
 #import "UIWebView+Screenshot.h"

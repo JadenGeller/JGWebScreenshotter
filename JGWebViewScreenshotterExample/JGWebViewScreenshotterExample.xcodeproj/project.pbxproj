@@ -21,8 +21,8 @@
 		D724B2FE18BA038000E900AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D724B2E018BA038000E900AE /* UIKit.framework */; };
 		D724B30618BA038000E900AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D724B30418BA038000E900AE /* InfoPlist.strings */; };
 		D724B30818BA038000E900AE /* JGWebViewScreenshotterExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D724B30718BA038000E900AE /* JGWebViewScreenshotterExampleTests.m */; };
-		D724B31B18BA097700E900AE /* JGWebViewScreenshotter.m in Sources */ = {isa = PBXBuildFile; fileRef = D724B31818BA097700E900AE /* JGWebViewScreenshotter.m */; };
-		D724B31C18BA097700E900AE /* UIWebView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = D724B31A18BA097700E900AE /* UIWebView+Screenshot.m */; };
+		D724B32818BA0C0E00E900AE /* JGWebScreenshotter.m in Sources */ = {isa = PBXBuildFile; fileRef = D724B32518BA0C0E00E900AE /* JGWebScreenshotter.m */; };
+		D724B32918BA0C0E00E900AE /* UIWebView+Screenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = D724B32718BA0C0E00E900AE /* UIWebView+Screenshot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +55,10 @@
 		D724B30318BA038000E900AE /* JGWebViewScreenshotterExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JGWebViewScreenshotterExampleTests-Info.plist"; sourceTree = "<group>"; };
 		D724B30518BA038000E900AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D724B30718BA038000E900AE /* JGWebViewScreenshotterExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JGWebViewScreenshotterExampleTests.m; sourceTree = "<group>"; };
-		D724B31718BA097700E900AE /* JGWebViewScreenshotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JGWebViewScreenshotter.h; path = JGWebViewScreenshotter/JGWebViewScreenshotter.h; sourceTree = SOURCE_ROOT; };
-		D724B31818BA097700E900AE /* JGWebViewScreenshotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JGWebViewScreenshotter.m; path = JGWebViewScreenshotter/JGWebViewScreenshotter.m; sourceTree = SOURCE_ROOT; };
-		D724B31918BA097700E900AE /* UIWebView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+Screenshot.h"; path = "JGWebViewScreenshotter/UIWebView+Screenshot.h"; sourceTree = SOURCE_ROOT; };
-		D724B31A18BA097700E900AE /* UIWebView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+Screenshot.m"; path = "JGWebViewScreenshotter/UIWebView+Screenshot.m"; sourceTree = SOURCE_ROOT; };
+		D724B32418BA0C0E00E900AE /* JGWebScreenshotter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JGWebScreenshotter.h; path = JGWebScreenshotter/JGWebScreenshotter.h; sourceTree = SOURCE_ROOT; };
+		D724B32518BA0C0E00E900AE /* JGWebScreenshotter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JGWebScreenshotter.m; path = JGWebScreenshotter/JGWebScreenshotter.m; sourceTree = SOURCE_ROOT; };
+		D724B32618BA0C0E00E900AE /* UIWebView+Screenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+Screenshot.h"; path = "JGWebScreenshotter/UIWebView+Screenshot.h"; sourceTree = SOURCE_ROOT; };
+		D724B32718BA0C0E00E900AE /* UIWebView+Screenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+Screenshot.m"; path = "JGWebScreenshotter/UIWebView+Screenshot.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,11 +123,8 @@
 				D724B2EE18BA038000E900AE /* Main.storyboard */,
 				D724B2F118BA038000E900AE /* JGViewController.h */,
 				D724B2F218BA038000E900AE /* JGViewController.m */,
-				D724B31718BA097700E900AE /* JGWebViewScreenshotter.h */,
-				D724B31818BA097700E900AE /* JGWebViewScreenshotter.m */,
-				D724B31918BA097700E900AE /* UIWebView+Screenshot.h */,
-				D724B31A18BA097700E900AE /* UIWebView+Screenshot.m */,
 				D724B2F418BA038000E900AE /* Images.xcassets */,
+				D724B32A18BA0C1200E900AE /* JGWebScreenshotter */,
 				D724B2E318BA038000E900AE /* Supporting Files */,
 			);
 			path = JGWebViewScreenshotterExample;
@@ -160,6 +157,17 @@
 				D724B30418BA038000E900AE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D724B32A18BA0C1200E900AE /* JGWebScreenshotter */ = {
+			isa = PBXGroup;
+			children = (
+				D724B32418BA0C0E00E900AE /* JGWebScreenshotter.h */,
+				D724B32518BA0C0E00E900AE /* JGWebScreenshotter.m */,
+				D724B32618BA0C0E00E900AE /* UIWebView+Screenshot.h */,
+				D724B32718BA0C0E00E900AE /* UIWebView+Screenshot.m */,
+			);
+			name = JGWebScreenshotter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,9 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D724B2E918BA038000E900AE /* main.m in Sources */,
-				D724B31C18BA097700E900AE /* UIWebView+Screenshot.m in Sources */,
+				D724B32918BA0C0E00E900AE /* UIWebView+Screenshot.m in Sources */,
 				D724B2F318BA038000E900AE /* JGViewController.m in Sources */,
-				D724B31B18BA097700E900AE /* JGWebViewScreenshotter.m in Sources */,
+				D724B32818BA0C0E00E900AE /* JGWebScreenshotter.m in Sources */,
 				D724B2ED18BA038000E900AE /* JGAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,22 +1,21 @@
 //
-//  JGWebViewSnapshotter.h
-//  Baton
+//  JGWebScreenshotter.h
 //
-//  Created by Jaden Geller on 2/15/14.
-//  Copyright (c) 2014 EJVDev. All rights reserved.
+//  Created by Jaden Geller on 2/23/14.
+//  Copyright (c) 2014 Jaden Geller. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 typedef void (^tookScreenshot)(UIImage *screenshot);
 
-@interface JGWebViewScreenshotter : NSObject <UIWebViewDelegate>
+@interface JGWebScreenshotter : NSObject <UIWebViewDelegate>
 
 // Convenience method that automatically executes on the shared instance
 +(void)requestScreenshotWithURL:(NSURL*)URL size:(CGSize)size completion:(tookScreenshot)completion;
 +(void)requestScreenshotWithURL:(NSURL*)URL width:(CGFloat)width completion:(tookScreenshot)completion;
 
-+(JGWebViewScreenshotter*)sharedInstance;
++(JGWebScreenshotter*)sharedInstance;
 -(void)requestScreenshotWithURL:(NSURL*)URL size:(CGSize)size completion:(tookScreenshot)completion;
 -(void)requestScreenshotWithURL:(NSURL*)URL width:(CGFloat)width completion:(tookScreenshot)completion;
 
