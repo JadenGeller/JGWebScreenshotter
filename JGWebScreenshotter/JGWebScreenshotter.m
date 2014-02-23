@@ -41,6 +41,7 @@ CGFloat const JGSnapshotHeightFull = CGFLOAT_MAX;
 
 @property (nonatomic) UIWebView *web;
 @property (nonatomic) NSMutableArray *requests;
+@property (nonatomic) NSInteger loadCounter;
 
 @property (nonatomic) JGWebScreenshotterRequest *currentRequest;
 
@@ -75,8 +76,9 @@ CGFloat const JGSnapshotHeightFull = CGFLOAT_MAX;
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
+    self.loadCounter--;
     
-    if (self.currentRequest){
+    if (self.currentRequest && self.loadCounter == 0){
         UIImage *screenshot = (self.currentRequest.size.height == JGSnapshotHeightFull) ? webView.fullScreenshot : webView.screenshot;
         self.currentRequest.completion(screenshot);
         
@@ -94,6 +96,10 @@ CGFloat const JGSnapshotHeightFull = CGFLOAT_MAX;
     }
     
     [self finishCurrentRequest];
+}
+
+-(void)webViewDidStartLoad:(UIWebView *)webView{
+    self.loadCounter++;
 }
 
 +(void)requestScreenshotWithURL:(NSURL*)URL size:(CGSize)size completion:(tookScreenshot)completion{
@@ -129,6 +135,7 @@ CGFloat const JGSnapshotHeightFull = CGFLOAT_MAX;
         
         CGFloat height = (self.currentRequest.size.height == JGSnapshotHeightFull) ? 0 : self.currentRequest.size.height;
         self.web.frame = CGRectMake(0, 0, self.currentRequest.size.width, height);
+        self.loadCounter == 0;
         [self.web loadRequest:[NSURLRequest requestWithURL:self.currentRequest.URL]];
     }
 }
